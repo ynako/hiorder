@@ -12,7 +12,6 @@ import team.infra.AbstractEvent;
 public class MenuUpdated extends AbstractEvent {
 
     private Long menuId;
-    private String name;
     private String description;
     private Integer price;
     private Boolean isAvailable;
@@ -22,6 +21,7 @@ public class MenuUpdated extends AbstractEvent {
     private Integer accOrderCount;
     private Boolean isHot;
     private String imageUrl;
+    private String menuName;
 
     public MenuUpdated(Menu aggregate) {
         super(aggregate);

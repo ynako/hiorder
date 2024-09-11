@@ -18,7 +18,7 @@
                                 MenuId :  {{item.menuId }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                Name :  {{item.name }}
+                                MenuName :  {{item.menuName }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
                                 Description :  {{item.description }}

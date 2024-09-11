@@ -30,11 +30,9 @@ jobs:
       - name: Build Maven Projects
         run: |
           mvn clean package -f ./order/pom.xml
-          mvn clean package -f ./push/pom.xml
           mvn clean package -f ./menu/pom.xml
           mvn clean package -f ./login/pom.xml
           mvn clean package -f ./order management/pom.xml
-          mvn clean package -f ./chat/pom.xml
 
       - name: Docker Build and push for Order
         uses: docker/build-push-action@v4
@@ -45,16 +43,6 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}/order:latest
             ghcr.io/${{ github.repository }}/order:${{ github.ref_name }}
-            
-      - name: Docker Build and push for Push
-        uses: docker/build-push-action@v4
-        with:
-          context: ./push
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository }}/push:latest
-            ghcr.io/${{ github.repository }}/push:${{ github.ref_name }}
             
       - name: Docker Build and push for Menu
         uses: docker/build-push-action@v4
@@ -85,14 +73,4 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}/order-management:latest
             ghcr.io/${{ github.repository }}/order-management:${{ github.ref_name }}
-            
-      - name: Docker Build and push for Chat
-        uses: docker/build-push-action@v4
-        with:
-          context: ./chat
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository }}/chat:latest
-            ghcr.io/${{ github.repository }}/chat:${{ github.ref_name }}
             

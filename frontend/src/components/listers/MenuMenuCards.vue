@@ -110,7 +110,7 @@
             
             me.newValue = {
                 'menuId': 0,
-                'name': '',
+                'menuName': '',
                 'description': '',
                 'price': 0,
                 'isAvailable': false,

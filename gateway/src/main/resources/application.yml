@@ -13,26 +13,18 @@ spring:
           uri: http://localhost:8082
           predicates:
             - Path=/orders/**, 
-        - id: push
-          uri: http://localhost:8083
-          predicates:
-            - Path=, 
         - id: menu
-          uri: http://localhost:8084
+          uri: http://localhost:8083
           predicates:
             - Path=/menus/**, 
         - id: login
-          uri: http://localhost:8085
+          uri: http://localhost:8084
           predicates:
             - Path=/users/**, 
         - id: order management
-          uri: http://localhost:8086
+          uri: http://localhost:8085
           predicates:
             - Path=/ordermenus/**, 
-        - id: chat
-          uri: http://localhost:8087
-          predicates:
-            - Path=/chats/**, /chatContents/**, 
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -61,10 +53,6 @@ spring:
           uri: http://order:8080
           predicates:
             - Path=/orders/**, 
-        - id: push
-          uri: http://push:8080
-          predicates:
-            - Path=, 
         - id: menu
           uri: http://menu:8080
           predicates:
@@ -77,10 +65,6 @@ spring:
           uri: http://orderManagement:8080
           predicates:
             - Path=/ordermenus/**, 
-        - id: chat
-          uri: http://chat:8080
-          predicates:
-            - Path=/chats/**, /chatContents/**, 
         - id: frontend
           uri: http://frontend:8080
           predicates:

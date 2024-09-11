@@ -19,5 +19,26 @@ public class MenuController {
 
     @Autowired
     MenuRepository menuRepository;
+
+    @RequestMapping(
+        value = "/menus/{id}//menudelete",
+        method = RequestMethod.DELETE,
+        produces = "application/json;charset=UTF-8"
+    )
+    public Menu menuDelete(
+        @PathVariable(value = "id") Long id,
+        HttpServletRequest request,
+        HttpServletResponse response
+    ) throws Exception {
+        System.out.println("##### /menu/menuDelete  called #####");
+        Optional<Menu> optionalMenu = menuRepository.findById(id);
+
+        optionalMenu.orElseThrow(() -> new Exception("No Entity Found"));
+        Menu menu = optionalMenu.get();
+        menu.menuDelete();
+
+        menuRepository.delete(menu);
+        return menu;
+    }
 }
 //>>> Clean Arch / Inbound Adaptor
