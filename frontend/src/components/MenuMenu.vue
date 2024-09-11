@@ -17,7 +17,7 @@
 
         <v-card-text>
             <Number v-if="editMode" label="MenuId" v-model="value.menuId" :editMode="editMode" :inputUI="''"/>
-            <String label="Name" v-model="value.name" :editMode="editMode" :inputUI="''"/>
+            <String label="MenuName" v-model="value.menuName" :editMode="editMode" :inputUI="''"/>
             <String label="Description" v-model="value.description" :editMode="editMode" :inputUI="''"/>
             <Number label="Price" v-model="value.price" :editMode="editMode" :inputUI="''"/>
             <Boolean label="IsAvailable" v-model="value.isAvailable" :editMode="editMode" :inputUI="''"/>
@@ -40,13 +40,6 @@
                 수정
             </v-btn>
             <div v-else>
-                <v-btn
-                    color="primary"
-                    text
-                    @click="save"
-                >
-                    MenuDelete
-                </v-btn>
                 <v-btn
                     color="primary"
                     text
@@ -81,6 +74,14 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
+            <v-btn
+                v-if="!editMode"
+                color="primary"
+                text
+                @click="menuDelete"
+            >
+                MenuDelete
+            </v-btn>
         </v-card-actions>
 
         <v-snackbar
@@ -214,6 +215,26 @@
             },
             change(){
                 this.$emit('input', this.value);
+            },
+            async menuDelete() {
+                try {
+                    if(!this.offline) {
+                        await axios.delete(axios.fixUrl(this.value._links['menuDelete'].href))
+                    }
+
+                    this.editMode = false;
+                    this.isDelete = true;
+                    
+                    this.$emit('input', this.value);
+                    this.$emit('delete', this.value);
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
             },
         },
     }

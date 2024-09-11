@@ -55,7 +55,7 @@
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
                             [ MenuId :  {{data.menuId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ Name :  {{data.name }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ MenuName :  {{data.menuName }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Description :  {{data.description }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Price :  {{data.price }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ IsAvailable :  {{data.isAvailable }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -133,7 +133,7 @@
             
             this.newValue = {
                 'menuId': 0,
-                'name': '',
+                'menuName': '',
                 'description': '',
                 'price': 0,
                 'isAvailable': false,

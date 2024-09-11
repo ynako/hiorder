@@ -9,7 +9,7 @@
                 <Number label="MenuId" v-model="item.menuId" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <String label="Name" v-model="item.name" :editMode="editMode" @change="change" />
+                <String label="MenuName" v-model="item.menuName" :editMode="editMode" @change="change" />
             </div>
             <div>
                 <String label="Description" v-model="item.description" :editMode="editMode" @change="change" />

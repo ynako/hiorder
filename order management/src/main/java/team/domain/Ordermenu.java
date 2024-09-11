@@ -27,14 +27,20 @@ public class Ordermenu {
 
     private String menuStatus;
 
-    @PostPersist
-    public void onPostPersist() {
-        OrderDeleted orderDeleted = new OrderDeleted(this);
-        orderDeleted.publishAfterCommit();
-
+    @PostUpdate
+    public void onPostUpdate() {
         StatusUpdated statusUpdated = new StatusUpdated(this);
         statusUpdated.publishAfterCommit();
     }
+
+    @PostRemove
+    public void onPostRemove() {
+        OrderDeleted orderDeleted = new OrderDeleted(this);
+        orderDeleted.publishAfterCommit();
+    }
+
+    @PreUpdate
+    public void onPreUpdate() {}
 
     public static OrdermenuRepository repository() {
         OrdermenuRepository ordermenuRepository = OrderManagementApplication.applicationContext.getBean(

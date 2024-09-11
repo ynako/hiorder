@@ -43,46 +43,6 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: push
-  labels:
-    app: push
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: push
-  template:
-    metadata:
-      labels:
-        app: push
-    spec:
-      containers:
-        - name: push
-          image: username/push:latest
-          ports:
-            - containerPort: 8080
-          readinessProbe:
-            httpGet:
-              path: '/actuator/health'
-              port: 8080
-            initialDelaySeconds: 10
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 10
-          livenessProbe:
-            httpGet:
-              path: '/actuator/health'
-              port: 8080
-            initialDelaySeconds: 120
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 5
-
----
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
   name: menu
   labels:
     app: menu
@@ -198,46 +158,6 @@ spec:
             periodSeconds: 5
             failureThreshold: 5
 
----
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: chat
-  labels:
-    app: chat
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: chat
-  template:
-    metadata:
-      labels:
-        app: chat
-    spec:
-      containers:
-        - name: chat
-          image: username/chat:latest
-          ports:
-            - containerPort: 8080
-          readinessProbe:
-            httpGet:
-              path: '/actuator/health'
-              port: 8080
-            initialDelaySeconds: 10
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 10
-          livenessProbe:
-            httpGet:
-              path: '/actuator/health'
-              port: 8080
-            initialDelaySeconds: 120
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 5
-
 
 ---
 
@@ -254,23 +174,6 @@ spec:
       targetPort: 8080
   selector:
     app: order
-
-
----
-
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: push
-  labels:
-    app: push
-spec:
-  ports:
-    - port: 8080
-      targetPort: 8080
-  selector:
-    app: push
 
 
 ---
@@ -322,21 +225,4 @@ spec:
       targetPort: 8080
   selector:
     app: order management
-
-
----
-
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: chat
-  labels:
-    app: chat
-spec:
-  ports:
-    - port: 8080
-      targetPort: 8080
-  selector:
-    app: chat
 

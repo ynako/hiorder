@@ -34,6 +34,9 @@ public class Order {
         addCart.publishAfterCommit();
     }
 
+    @PrePersist
+    public void onPrePersist() {}
+
     public static OrderRepository repository() {
         OrderRepository orderRepository = OrderApplication.applicationContext.getBean(
             OrderRepository.class

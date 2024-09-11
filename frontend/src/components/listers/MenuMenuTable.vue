@@ -67,7 +67,7 @@
             headers: 
                 [
                     { text: "menuId", value: "menuId" },
-                    { text: "name", value: "name" },
+                    { text: "menuName", value: "menuName" },
                     { text: "description", value: "description" },
                     { text: "price", value: "price" },
                     { text: "isAvailable", value: "isAvailable" },
@@ -95,7 +95,7 @@
 
             this.newValue = {
                 'menuId': 0,
-                'name': '',
+                'menuName': '',
                 'description': '',
                 'price': 0,
                 'isAvailable': false,

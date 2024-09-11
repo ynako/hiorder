@@ -12,6 +12,16 @@ import team.infra.AbstractEvent;
 public class MenuDeleted extends AbstractEvent {
 
     private Long menuId;
+    private String menuName;
+    private String description;
+    private Integer price;
+    private Boolean isAvailable;
+    private String category;
+    private Integer discount;
+    private Integer todayOrderCount;
+    private Integer accOrderCount;
+    private Boolean isHot;
+    private String imageUrl;
 
     public MenuDeleted(Menu aggregate) {
         super(aggregate);

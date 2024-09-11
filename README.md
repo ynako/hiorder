@@ -21,11 +21,9 @@ cd /bin
 See the README.md files inside the each microservices directory:
 
 - order
-- push
 - menu
 - login
 - order management
-- chat
 
 
 ## Run API Gateway (Spring Gateway)
@@ -39,12 +37,9 @@ mvn spring-boot:run
 ```
  http :8088/orders orderId="orderId" userId="userId" menuId="menuId" orderdate="orderdate" totalPrice="totalPrice" orderStatus="orderStatus" 
 ```
-- push
-```
-```
 - menu
 ```
- http :8088/menus menuId="menuId" name="name" description="description" price="price" isAvailable="isAvailable" category="category" discount="discount" todayOrderCount="todayOrderCount" accOrderCount="accOrderCount" isHot="isHot" imageUrl="imageUrl" 
+ http :8088/menus menuId="menuId" menuName="menuName" description="description" price="price" isAvailable="isAvailable" category="category" discount="discount" todayOrderCount="todayOrderCount" accOrderCount="accOrderCount" isHot="isHot" imageUrl="imageUrl" 
 ```
 - login
 ```
@@ -53,11 +48,6 @@ mvn spring-boot:run
 - order management
 ```
  http :8088/ordermenus orderMenuId="orderMenuId" orderId="orderId" menuId="menuId" quantity="quantity" menuStatus="menuStatus" 
-```
-- chat
-```
- http :8088/chats chatId="chatId" userId="userId" managerId="managerId" 
- http :8088/chatContents chatContentId="chatContentId" chatId="chatId" content="content" createdAt="createdAt" senderId="senderId" receiverId="receiverId" 
 ```
 
 

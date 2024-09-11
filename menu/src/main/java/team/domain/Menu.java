@@ -7,7 +7,6 @@ import javax.persistence.*;
 import lombok.Data;
 import team.MenuApplication;
 import team.domain.MenuCreated;
-import team.domain.MenuDeleted;
 import team.domain.MenuUpdated;
 
 @Entity
@@ -20,7 +19,7 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long menuId;
 
-    private String name;
+    private String menuName;
 
     private String description;
 
@@ -44,13 +43,22 @@ public class Menu {
     public void onPostPersist() {
         MenuCreated menuCreated = new MenuCreated(this);
         menuCreated.publishAfterCommit();
+    }
 
+    @PostUpdate
+    public void onPostUpdate() {
         MenuUpdated menuUpdated = new MenuUpdated(this);
         menuUpdated.publishAfterCommit();
-
-        MenuDeleted menuDeleted = new MenuDeleted(this);
-        menuDeleted.publishAfterCommit();
     }
+
+    @PrePersist
+    public void onPrePersist() {}
+
+    @PreUpdate
+    public void onPreUpdate() {}
+
+    @PreRemove
+    public void onPreRemove() {}
 
     public static MenuRepository repository() {
         MenuRepository menuRepository = MenuApplication.applicationContext.getBean(
@@ -58,5 +66,15 @@ public class Menu {
         );
         return menuRepository;
     }
+
+    //<<< Clean Arch / Port Method
+    public void menuDelete() {
+        //implement business logic here:
+
+        MenuDeleted menuDeleted = new MenuDeleted(this);
+        menuDeleted.publishAfterCommit();
+    }
+    //>>> Clean Arch / Port Method
+
 }
 //>>> DDD / Aggregate Root

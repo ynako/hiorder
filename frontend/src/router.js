@@ -8,7 +8,6 @@ Vue.use(Router);
 import OrderOrderManager from "./components/listers/OrderOrderCards"
 import OrderOrderDetail from "./components/listers/OrderOrderDetail"
 
-
 import MenuMenuManager from "./components/listers/MenuMenuCards"
 import MenuMenuDetail from "./components/listers/MenuMenuDetail"
 
@@ -17,11 +16,6 @@ import LoginUserDetail from "./components/listers/LoginUserDetail"
 
 import OrderManagementOrdermenuManager from "./components/listers/OrderManagementOrdermenuCards"
 import OrderManagementOrdermenuDetail from "./components/listers/OrderManagementOrdermenuDetail"
-
-import ChatChatManager from "./components/listers/ChatChatCards"
-import ChatChatDetail from "./components/listers/ChatChatDetail"
-import ChatChatContentManager from "./components/listers/ChatChatContentCards"
-import ChatChatContentDetail from "./components/listers/ChatChatContentDetail"
 
 
 export default new Router({
@@ -38,7 +32,6 @@ export default new Router({
                 name: 'OrderOrderDetail',
                 component: OrderOrderDetail
             },
-
 
             {
                 path: '/menus/menus',
@@ -71,27 +64,6 @@ export default new Router({
                 path: '/orderManagements/ordermenus/:id',
                 name: 'OrderManagementOrdermenuDetail',
                 component: OrderManagementOrdermenuDetail
-            },
-
-            {
-                path: '/chats/chats',
-                name: 'ChatChatManager',
-                component: ChatChatManager
-            },
-            {
-                path: '/chats/chats/:id',
-                name: 'ChatChatDetail',
-                component: ChatChatDetail
-            },
-            {
-                path: '/chats/chatContents',
-                name: 'ChatChatContentManager',
-                component: ChatChatContentManager
-            },
-            {
-                path: '/chats/chatContents/:id',
-                name: 'ChatChatContentDetail',
-                component: ChatChatContentDetail
             },
 
 

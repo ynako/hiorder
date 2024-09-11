@@ -46,7 +46,6 @@
                     </v-list-item>
 
 
-
                     <v-list-item
                         class="px-2"
                         key="menus"
@@ -80,29 +79,6 @@
                         style="font-weight:700;"
                     >
                         ordermenu
-                    </v-list-item>
-
-
-                    <v-list-item
-                        class="px-2"
-                        key="chats"
-                        to="/chats/chats"
-                        @click="changeUrl()"
-                        color="primary"
-                        style="font-weight:700;"
-                    >
-                        Chat
-                    </v-list-item>
-
-                    <v-list-item
-                        class="px-2"
-                        key="chatContents"
-                        to="/chats/chatContents"
-                        @click="changeUrl()"
-                        color="primary"
-                        style="font-weight:700;"
-                    >
-                        ChatContent
                     </v-list-item>
 
 
@@ -210,20 +186,6 @@ export default {
                 description: '', 
                 key: 'ordermenus', 
                 route: '/orderManagements/ordermenus',
-                ImageUrl: '',
-            },
-            { 
-                title: 'Chat', 
-                description: '', 
-                key: 'chats', 
-                route: '/chats/chats',
-                ImageUrl: '',
-            },
-            { 
-                title: 'ChatContent', 
-                description: '', 
-                key: 'chatContents', 
-                route: '/chats/chatContents',
                 ImageUrl: '',
             },
             
